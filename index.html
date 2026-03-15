@@ -1,0 +1,341 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💚 My Heart's Confession 💚</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #11998e, #38ef7d, #32d18e, #1dd1a1, #0fc28a);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .heart-float {
+            position: absolute;
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.8);
+            animation: floatUp 6s linear infinite;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 35px;
+            padding: 3.5rem 3rem;
+            max-width: 550px;
+            width: 92%;
+            text-align: center;
+            box-shadow: 
+                0 25px 50px rgba(0,0,0,0.25),
+                inset 0 1px 0 rgba(255,255,255,0.4);
+            border: 1px solid rgba(255,255,255,0.25);
+            position: relative;
+            z-index: 10;
+            animation: entrance 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        @keyframes entrance {
+            0% {
+                opacity: 0;
+                transform: scale(0.7) translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        .music-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .music-toggle:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.1);
+        }
+        
+        .main-heart {
+            font-size: 5rem;
+            background: linear-gradient(135deg, #fff, #f0f9ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: heartbeat 2s ease-in-out infinite;
+            filter: drop-shadow(0 10px 20px rgba(255,255,255,0.5));
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.2rem;
+            background: linear-gradient(135deg, #fff 0%, #f8f9ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            text-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+        
+        .subtitle {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .photo-frame {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.4);
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
+            50% { box-shadow: 0 25px 50px rgba(56,239,125,0.4); }
+        }
+        
+        .message-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 3rem 2.5rem;
+            margin: 2.5rem 0;
+            font-size: 1.15rem;
+            line-height: 1.85;
+            color: #1a4a2f;
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.15),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+            position: relative;
+            overflow: hidden;
+            border-left: 6px solid #38ef7d;
+        }
+        
+        .message-container::before {
+            content: '💌';
+            position: absolute;
+            top: -25px;
+            right: -25px;
+            font-size: 4rem;
+            opacity: 0.4;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .message-container p {
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: typeWriter 0.8s forwards;
+        }
+        
+        .message-container p:nth-child(1) { animation-delay: 0.2s; }
+        .message-container p:nth-child(2) { animation-delay: 0.6s; }
+        .message-container p:nth-child(3) { animation-delay: 1.2s; }
+        .message-container p:nth-child(4) { animation-delay: 2s; }
+        .message-container p:nth-child(5) { animation-delay: 2.8s; }
+        .message-container p:nth-child(6) { animation-delay: 3.6s; }
+        .message-container p:nth-child(7) { animation-delay: 4.4s; }
+        .message-container p:nth-child(8) { animation-delay: 5.2s; }
+        
+        @keyframes typeWriter {
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 2rem 0 1rem;
+            font-weight: 700;
+            text-shadow: 0 4px 15px rgba(17,153,142,0.4);
+        }
+        
+        .countdown {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, #38ef7d, #11998e, #32d18e);
+            color: white;
+            border: none;
+            padding: 1.3rem 3rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 15px 35px rgba(56,239,125,0.5);
+            margin-top: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cta:hover::before {
+            left: 100%;
+        }
+        
+        .cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(56,239,125,0.7);
+        }
+        
+        @media (max-width: 480px) {
+            .container { padding: 2.5rem 2rem; margin: 1rem; }
+            h1 { font-size: 2.5rem; }
+            .message-container { padding: 2.5rem 2rem; font-size: 1.05rem; }
+            .main-heart { font-size: 4rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts" id="hearts"></div>
+    
+    <div class="container">
+        <button class="music-toggle" id="musicBtn" title="Toggle Music">🎵</button>
+        
+        <div class="main-heart">💚</div>
+        <h1>Mahal na Mahal Kita</h1>
+        <div class="countdown">4 na buwan, 120 na araw, libo-libong tibok ng puso 💭</div>
+        <p class="subtitle">Hindi ko inexpect na magiging ganito kahalaga sa akin ang ngiti mo ✨</p>
+        
+        <div class="photo-frame">👤</div>
+        
+        <div class="message-container">
+            <p>Crush kita, sa loob ng <strong>4 na buwan</strong> na ito, naging bahagi ka na ng bawat araw ko. Bawat umaga nagigising ako na iniisip ka. Bawat gabi natutulog ako na naaalala lahat ng ginagawa mo with your friends.</p>
+            
+            <p>Yung tawa mo talaga ang nakakaakit sa akin. Yung paraan ng pagtawa mo na parang araw sa gitna ng ulan. Yung mga maliliit na bagay: yung kislap ng mata mo kapag excited ka.</p>
+            
+            <p>Naalala ko pa yung unang beses na nakita kita. Parang tumigil ang oras. Tumibok nang doble ang puso ko. Mula noon, lagi na kitang hinahanap. Favorite na hinahanap sa midst of the crowds, favorite "what if", favorite na dahilan para maging masaya araw araw.</p>
+            
+            <p>Hindi ito basta crush. <strong>Sobrang lalim na ng nararamdaman ko sa'yo</strong>. Yung klase ng pagmamahal na gustong-gusto kong maging mas better na tao para sa'yo, magplano ng future natin, hawakan ang kamay mo sa bawat adventure ng buhay.</p>
+            
+            <p>I know this might sound random or unexpected. Pero minsan may mga bagay na mas magandang sabihin kaysa itago lang.</p>
+            
+            <p>Green mo ang mundo ko. Ikaw na yung safe place ko, wildest dream ko, lahat lahat ko na. Hindi ko na kaya itago. Kailangan ko nang sabihin lahat ng ito.</p>
+            
+            <p>Kaya eto na, 4 na buwan na pag-iyak ng puso ko. Kung may konting spark din sa puso mo... sabihin mo lang. Let's make this story na maging totoo. 💚</p>
+            
+            <p>P.S. Miss na miss na kita araw araw. Sana maging tayo. 🙏💕</p>
+        </div>
+        
+        <div class="signature">Lalaking sobrang inlove sa'yo</div>
+        
+        <button class="cta" onclick="respond()">💕 Mahal mo din bako? 💕</button>
+    </div>
+
+    <script>
+        // Floating Hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart-float';
+            heart.innerHTML = ['💚', '💖', '💕', '💗'][Math.floor(Math.random() * 4)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            document.getElementById('hearts').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+        
+        setInterval(createHeart, 800);
+        
+        // Music Toggle (gentle sound effect)
+        const musicBtn = document.getElementById('musicBtn');
+        let isPlaying = false;
+        musicBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            musicBtn.textContent = isPlaying ? '🔇' : '🎵';
+            if (isPlaying) {
+                // Simple beep effect
+                const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSxFz/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSxFz/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSxFz/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSxFz/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSxFz/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSxFz/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSxFz/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSxFz/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSxFz/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSxFz/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSxFz/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSxFz/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSxFz/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSxFz/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSxFz/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSxFz/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSxFz/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSxFz/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSxFz/LMeSwFJHfH8N2QQAoUXrTp66hVFAp
